@@ -34,9 +34,28 @@
          <!-- is_urgent -->
       <div class="row">
         <div class="input-field col s12">
+          <div class="switch">
             <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
-          <input id="is_urgent" name="is_urgent" type="text" class="validate" required>
-          <label for="is_urgent">Is Urgent</label>
+            <label for="is_urgent">
+                <input id="is_urgent" name="is_urgent" type="checkbox">
+                <span class="lever"></span>
+                Is Urgent
+            </label>
+          </div>
+        </div>
+      </div>
+       <!--category_id-->
+       <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+          <select name="category_id" id="category_id" class="validate" required>
+              <option value="" disabled selected>Choose Category</option>
+              {% for category in categories %}
+                <option value="{{category.id}}">{{ category.category_name }}</option>
+
+              {% endfor %}
+          </select>
+          <label for="category_id">Category</label>
         </div>
     </div>
       <!--submit button-->
